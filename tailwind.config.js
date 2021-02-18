@@ -5,7 +5,15 @@ module.exports = {
     extend: {
       colors: {
         cyan: colors.cyan,
+        amber: colors.amber,
       }
+    }
+  },
+  variants: {
+    extend: {
+      textColor: ['disabled'],
+      backgroundColor: ['disabled'],
+      cursor: ['disabled'],
     }
   },
   future: { // For Tailwind 2.0 upcoming changes

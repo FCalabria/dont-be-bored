@@ -1,10 +1,23 @@
 <script>
+    import fetch from './fetch'
     import Styles from './Styles.svelte'
-	export let name;
+    import Idea from './Idea.svelte'
+    import Button from './microcomponents/Button.svelte'
+
+    let getIdeaDisabled
+    let idea
+
+    async function getIdea () {
+        getIdeaDisabled = true
+        idea = await fetch.get('http://www.boredapi.com/api/activity/')
+        getIdeaDisabled = false
+    }
 </script>
 <Styles />
 
-<main class="text-center m-6">
-	<h1 class="text-3xl">Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<main class="text-center mx-6 my-8">
+	<h1 class="text-3xl mb-9">Are you bored? Don't be bored!</h1>
+    <Button on:click={getIdea} text={"Get an idea"} disabled={getIdeaDisabled}/>
+    <!-- Loading component for the idea (#await) -->
+    {#if idea}<Idea {idea}/>{/if}
 </main>
