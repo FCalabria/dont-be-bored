@@ -1,5 +1,5 @@
 <script>
-    import fetch from './fetch'
+    import f from 'just-fetch'
     import Styles from './Styles.svelte'
     import Idea from './Idea.svelte'
     import Button from './microcomponents/Button.svelte'
@@ -9,7 +9,7 @@
 
     async function getIdea () {
         getIdeaDisabled = true
-        idea = await fetch.get('http://www.boredapi.com/api/activity/')
+        idea = await f.get('http://www.boredapi.com/api/activity/')
         getIdeaDisabled = false
     }
 </script>
