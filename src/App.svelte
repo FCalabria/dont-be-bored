@@ -12,11 +12,13 @@
         idea = await f.get('http://www.boredapi.com/api/activity/')
         ideaLoading = false
     }
+
 </script>
 <Styles />
 
 <main class="text-center mx-6 my-8">
 	<h1 class="text-3xl mb-9">Are you bored? Don't be bored!</h1>
+    <Button class="m-2" on:click={getIdea} text={"Get an idea"} disabled={ideaLoading}/>
     <Button on:click={getIdea} text={"Get an idea"} disabled={ideaLoading}/>
     {#if idea || ideaLoading}<Idea {idea} loading={ideaLoading}/>{/if}
 </main>

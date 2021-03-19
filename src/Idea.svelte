@@ -1,19 +1,9 @@
 <script>
     import { slide, blur } from 'svelte/transition';
+    import { typesMap } from './types'
     export let idea = {}
     export let loading;
     const suspenseDuration = 700
-    const typesMap = {
-        education: '🤓',
-        recreational: '💃',
-        social: '🥳',
-        diy: '🧑‍🔧',
-        charity: '😇',
-        cooking: '🧑‍🍳',
-        relaxation: '💆',
-        music: '🧑‍🎤',
-        busywork: '🧑‍💼'
-    }
     $: emoji = loading ? '⌛' : typesMap[idea.type] || '😀'
 </script>
 <div  transition:slide="{{ duration:100 }}" class="m-2 px-4 py-6 border-2 border-amber-600 bg-gray-50 flex">
